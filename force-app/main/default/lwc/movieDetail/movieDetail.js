@@ -3,9 +3,9 @@ import { LightningElement, wire } from 'lwc';
 import MovieChannel from '@salesforce/messageChannel/movie__c'
 export default class MovieDetail extends LightningElement {
 
-    BASE_URL='https://api.themoviedb.org/3'
-    API_KEY = '8a29ed49c0a95ec632c4d41ce98a0fb6'
-    IMAGE_POSTER_PATH = 'https://image.tmdb.org/t/p/original'
+    BASE_URL=''
+    API_KEY = ''
+    IMAGE_POSTER_PATH = ''
 
     subscription=null
     movieId;
