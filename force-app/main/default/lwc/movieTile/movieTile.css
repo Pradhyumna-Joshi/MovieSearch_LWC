@@ -1,0 +1,5 @@
+div:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    transition-duration: 1000ms;
+}

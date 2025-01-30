@@ -1,0 +1,78 @@
+<template>
+    <div style="border-radius:10px;box-shadow:0px 2px 4px;background-color: rgb(2 6 23);color:whitesmoke" lwc:if={data}>
+        <lightning-layout multiple-rows="true">
+            <!-- details  -->
+            <lightning-layout-item size="12" >
+                <img style="border-radius:10px;height:400px;width:100%;" src={data.backdrop_path} alt="Movie Image">
+                <h1 style="font-size: 30px;font-weight:bolder;text-align:center">{data.title}</h1>
+                <h1 style="font-size: medium;font-weight:bold;text-align:center"><q>{data.tagline}</q></h1>
+                <h1 style="text-align:center">{data.overview}</h1>
+            </lightning-layout-item>
+            
+
+            <!-- stats  -->
+            <lightning-layout-item class="slds-p-top_large" size="12">
+                <div style="margin:0px 16px;padding-bottom:10px;height:70px;border-radius:10px;box-shadow:0xp 4px 4px;background-color: rgb(51 65 85);color:whitesmoke;text-align:center;">
+                    
+                    
+                    <lightning-layout>
+                        <lightning-layout-item padding="around-small" size="4">
+                            
+                                <h1>Budget</h1>
+                                <h1>{data.budget}</h1>
+                            
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" size="4">
+                           
+                                <h1>Budget</h1>
+                                <h1>{data.budget}</h1>
+                            
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" size="4">
+                           
+                                <h1>Budget</h1>
+                                <h1>{data.budget}</h1>
+                            
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    
+                        
+                       
+                        
+                    
+               
+                </div>
+            </lightning-layout-item>
+
+            <!-- genres  -->
+            <lightning-layout class="slds-size_1-of-1 slds-wrap slds-p-top_large slds-m-left_medium"  multiple-rows="true" >
+                <template for:each={genres} for:item="genre">
+                    <lightning-layout-item padding="around_large"  key={genre} size="3" >
+                        <div  style="width:fit-content;padding:16px;border-radius:30px;text-align:center;background-color: rgb(51 65 85);border:0.5px solid whitesmoke">
+                           
+                            {genre}
+                        </div>
+                    </lightning-layout-item>
+                    
+                </template>
+            </lightning-layout>
+
+
+            <!-- credits  -->
+            <lightning-layout multiple-rows="true" class="slds-p-top_large">
+                <template for:each={credits} for:item="cast">
+                    <lightning-layout-item  key={cast} size="3" >
+                        <div  style="width:fit-content;padding:10px;text-align:center">
+                            <lightning-avatar variant="circle" size="large" alternative-text="Image"  src={cast.profile_path} ></lightning-avatar>
+                            <h1>{cast.name}</h1>
+                        </div>
+                    </lightning-layout-item>
+                    
+                </template>
+            </lightning-layout>
+              
+                
+           
+        </lightning-layout>
+    </div>
+</template>

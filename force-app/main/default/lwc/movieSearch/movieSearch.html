@@ -1,0 +1,45 @@
+<template>
+  
+        <div style="background-color: rgb(2 6 23);border-radius:10px">
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item size="12" padding="horizontal-large">
+                    <lightning-input name="search" type="search" onchange={handleChange}></lightning-input>
+                </lightning-layout-item>
+    
+                <template  lwc:if={popular}>
+                    
+                        <h1 style="margin-top:20px;padding-left:20px;font-size:40px;font-weight:lighter;color:rgba(255, 255, 255, 0.7)">Trending</h1>
+                        <div style="display: flex;overflow-x:auto;height:100%">
+                            <template for:each={popular} for:item="movie" for:index="index">
+                                <div style="position:relative;padding:20px 40px;width:240px;flex-shrink: 0" key={movie.id}>
+                                    <h1 style="margin-left:-60px;position:absolute;bottom:0;font-size:150px;font-weight:bolder;color:rgba(255,255,255,0.6)">{index}</h1>
+                                    <c-movie-tile movie={movie} onclicked={handleClick}></c-movie-tile>
+                                </div>
+                            </template>
+                        </div>
+                    
+                    
+                </template>
+    
+                <template lwc:if={data}>
+                    <div style="margin-top:16px;position:relative;padding-top:50px">
+                        <h1 style="position:absolute;top:0;left:0;padding-left:10px;font-size:40px;font-weight:lighter;color:rgba(255, 255, 255, 0.7)">Top Rated</h1>
+                        <lightning-layout multiple-rows="true">
+                        
+                            
+                            <template for:each={data} for:item="movie">
+                                <lightning-layout-item padding="around-small" key={movie.id} size="3">
+                                    <c-movie-tile movie={movie} onclicked={handleClick}></c-movie-tile>
+                                </lightning-layout-item>
+                            </template>
+                        
+                        
+                    </lightning-layout>
+                    </div>
+                    
+                </template>
+            </lightning-layout>
+        </div>
+       
+   
+</template>
